@@ -8,7 +8,7 @@ export const InlineCode = ({ className, ...others }: InlineCodeProps) => {
     <code
       className={clsx(
         className,
-        "bg-secondary/dim-5 text-body-2 text-secondary ps-sm pe-sm font-monospace"
+        "bg-secondary/dim-5 text-secondary ps-sm pe-sm font-monospace"
       )}
       {...others}
     />

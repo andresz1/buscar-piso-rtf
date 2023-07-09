@@ -2,7 +2,7 @@ import { Canvas, useLoader } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
-export const Example = () => {
+export const FlatExample = () => {
   const gltf = useLoader(GLTFLoader, "/assets/poly2.glb");
 
   return (

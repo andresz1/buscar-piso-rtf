@@ -8,7 +8,7 @@ export const Center = ({ className, ...others }: CenterProps) => {
     <div
       className={clsx(
         className,
-        "flex items-center justify-center w-full h-full flex-col gap-md"
+        "flex items-center justify-center w-full h-full flex-col"
       )}
       {...others}
     />

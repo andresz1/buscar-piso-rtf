@@ -4,15 +4,17 @@ import { H3 } from "./components/mdx/H3";
 import { InlineCode } from "./components/mdx/InlineCode";
 import { P } from "./components/mdx/P";
 import { Strong } from "./components/mdx/Strong";
-import { Example } from "./components/Example";
 import { Center } from "./components/ui/Center";
 import { Avatar } from "./components/ui/Avatar";
 import { PersonalCard } from "./components/ui/PersonalCard";
 import { UL } from "./components/mdx/UL";
 import { LI } from "./components/mdx/LI";
+import { Anchor } from "./components/mdx/Anchor";
+import { VertexExample } from "./components/examples/VertexExample";
+import { FlatExample } from "./components/examples/FlatExample";
+import { MeshExample } from "./components/examples/MeshExample";
 
 export const Components = {
-  Example,
   h1: H1,
   h2: H2,
   h3: H3,
@@ -24,4 +26,8 @@ export const Components = {
   PersonalCard,
   ul: UL,
   li: LI,
+  a: Anchor,
+  VertexExample,
+  MeshExample,
+  FlatExample,
 };
