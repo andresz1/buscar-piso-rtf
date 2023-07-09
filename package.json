@@ -16,6 +16,7 @@
     "@react-three/fiber": "^8.13.4",
     "@spark-ui/tailwind-plugins": "^2.13.0",
     "@spark-ui/theme-utils": "^2.17.0",
+    "@types/three": "^0.153.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "three": "^0.154.0"
