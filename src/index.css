@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-canvas {
-  transform-origin: 0 0;
+@layer base {
+  canvas {
+    transform-origin: 0 0;
+  }
 }

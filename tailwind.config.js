@@ -1,5 +1,6 @@
-const sparkPlugins = require("@spark-ui/tailwind-plugins");
-const themeUtils = require("@spark-ui/theme-utils");
+const defaultTheme = require("tailwindcss/defaultTheme");
+const spark = require("@spark-ui/tailwind-plugins");
+const theme = require("@spark-ui/theme-utils");
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -9,14 +10,18 @@ export default {
     "./node_modules/@spark-ui/**/*.{js,mjs}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["'Nunito Sans', sans-serif;", ...defaultTheme.fontFamily.sans],
+      },
+    },
   },
   plugins: [
-    ...sparkPlugins.sparkConfig({
+    ...spark.sparkConfig({
       htmlFontSize: 16,
       themes: {
-        default: themeUtils.defaultTheme,
-        dark: themeUtils.defaultThemeDark,
+        default: theme.defaultTheme,
+        dark: theme.defaultThemeDark,
       },
     }),
   ],
