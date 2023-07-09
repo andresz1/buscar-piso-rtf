@@ -6,7 +6,7 @@ const theme = require("@spark-ui/theme-utils");
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx, mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@spark-ui/**/*.{js,mjs}",
   ],
   theme: {
