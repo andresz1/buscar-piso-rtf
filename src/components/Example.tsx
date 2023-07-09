@@ -1,7 +1,7 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
+import { useEffect } from "react";
+import { Canvas, useLoader } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader";
 
 /*
 function Box(props) {
@@ -32,18 +32,18 @@ function Box(props) {
 const XD = () => {
   useEffect(() => {
     const handleResize = () => {
-      const canvas = document.querySelector("#x canvas");
-      const container = document.querySelector("#app > div > div");
+      const canvas = document.querySelector("#x canvas") as HTMLElement;
+      const container = document.querySelector(
+        "#app > div > div"
+      ) as HTMLElement;
 
       if (!canvas || !container) {
         return;
       }
 
-      console.log(window.getComputedStyle(canvas).transform);
-
       const regExp = /\(([^)]+)\)/;
       const matches = regExp.exec(container.style.transform);
-      const scale = 1 / Number(matches[1]);
+      const scale = 1 / Number(matches ? matches[1] : 1);
       console.log(scale);
 
       canvas.style.transform = `scale(${scale})`;
@@ -64,7 +64,7 @@ const XD = () => {
 };
 
 export const Example = () => {
-  const gltf = useLoader(GLTFLoader, "/assets/poly.glb");
+  const gltf = useLoader(GLTFLoader, "/assets/poly2.glb");
 
   return (
     <>
