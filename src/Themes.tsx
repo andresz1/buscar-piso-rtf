@@ -1,11 +1,10 @@
 export const Themes = {
   dark: {
-    backgroundColor: `var(--text-color)`,
-    color: `var(--background-color)`,
+    backgroundColor: "rgb(var(--colors-surface))",
+    color: "var(--colors-on-surface)",
   },
-
   default: {
-    backgroundColor: `var(--background-color)`,
-    color: `var(--text-color)`,
+    backgroundColor: "rgb(var(--colors-surface))",
+    color: "rgb(var(--colors-on-surface))",
   },
 };
