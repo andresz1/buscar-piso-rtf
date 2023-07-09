@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+canvas {
+  transform-origin: 0 0;
+}
