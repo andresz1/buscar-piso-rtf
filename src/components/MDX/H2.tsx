@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import { HTMLAttributes } from "react";
+import { ComponentPropsWithoutRef } from "react";
 
-export interface H2Props extends HTMLAttributes<HTMLHeadingElement> {}
+export type H2Props = ComponentPropsWithoutRef<"h2">;
 
 export const H2 = ({ className, ...others }: H2Props) => {
   return <h2 className={clsx(className, "text-display-2 mb-md")} {...others} />;

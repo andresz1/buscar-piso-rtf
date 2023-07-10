@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import { HTMLAttributes } from "react";
+import { ComponentPropsWithoutRef } from "react";
 
-export type InlineCodeProps = HTMLAttributes<HTMLHeadingElement>;
+export type InlineCodeProps = ComponentPropsWithoutRef<"code">;
 
 export const InlineCode = ({ className, ...others }: InlineCodeProps) => {
   return (

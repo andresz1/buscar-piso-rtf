@@ -6,7 +6,7 @@ import { Mesh } from "three";
 const Sphere = (props: MeshProps) => {
   const ref = useRef<Mesh>(null!);
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     ref.current.rotation.x += delta / 2;
   });
 

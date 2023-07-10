@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import { HTMLAttributes } from "react";
+import { ComponentPropsWithoutRef } from "react";
 
-export interface H1Props extends HTMLAttributes<HTMLHeadingElement> {}
+export type H1Props = ComponentPropsWithoutRef<"h1">;
 
 export const H1 = ({ className, ...others }: H1Props) => {
   return (
