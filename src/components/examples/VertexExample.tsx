@@ -7,7 +7,7 @@ const Sphere = (props: MeshProps) => {
   const ref = useRef<Mesh>(null!);
 
   useFrame((_state, delta) => {
-    ref.current.rotation.x += delta / 2;
+    ref.current.rotation.y += delta;
   });
 
   return (
@@ -20,7 +20,11 @@ const Sphere = (props: MeshProps) => {
 
 export const VertexExample = (props: CanvasProps) => {
   return (
-    <Canvas resize={{ scroll: false, offsetSize: true }} {...props}>
+    <Canvas
+      resize={{ scroll: false, offsetSize: true }}
+      camera={{ position: [0, 0, 3] }}
+      {...props}
+    >
       <ambientLight />
       <Sphere position={[0, 0, 0]} />
       <OrbitControls />

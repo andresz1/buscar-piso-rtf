@@ -14,6 +14,7 @@
     "@nkzw/vite-plugin-remdx": "^0.4.0",
     "@react-three/drei": "^9.78.1",
     "@react-three/fiber": "^8.13.4",
+    "@react-three/postprocessing": "^2.14.13",
     "@spark-ui/tailwind-plugins": "^2.13.0",
     "@spark-ui/theme-utils": "^2.17.0",
     "@types/three": "^0.153.0",

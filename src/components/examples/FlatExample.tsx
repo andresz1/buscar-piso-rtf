@@ -3,7 +3,7 @@ import { OrbitControls } from "@react-three/drei";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
 export const FlatExample = () => {
-  const gltf = useLoader(GLTFLoader, "/assets/poly2.glb");
+  const gltf = useLoader(GLTFLoader, "/assets/flat.glb");
 
   return (
     <Canvas resize={{ scroll: false, offsetSize: true }}>

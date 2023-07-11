@@ -16,7 +16,7 @@ export { Themes } from "./Themes";
 
 - 3 años en **Adevinta**
 - 1 año en el equipo de **Web Platform**
-- 1 año como Instructor en **CodeOp** 
+- 1 año como instructor en **CodeOp** 
 - Proyectos de código abierto
   - [size-limit-action](https://github.com/andresz1/size-limit-action)
   - [tesfy](https://tesfy.vercel.app/)
@@ -41,6 +41,7 @@ export { Themes } from "./Themes";
   - Iluminación
   - Terraza
   - Buena distribución
+
 ---
 
 # Búsqueda
@@ -157,28 +158,36 @@ export { Themes } from "./Themes";
 
 - API de JavaScript
 - Mostrar gráficos 2D y 3D
-- OpenGL ES
+- Álgebra lineal
+- Historia
+  - OpenGL
+  - OpenGL ES
+- GLSL
 - `canvas`
-- Dificil de usar
 
 ---
 
-# Vértices
+# Pipeline gráfico
 
-```js
-const vertex1 = [1.0, 0, 0.5]
-const vertex2 = [0.0, 1.0, 0.5]
-const vertex3 = [0.0, 0.5, 1.0]
-```
+<Center className="gap-2xl">
+<img
+  src="/images/webgl-pipeline.jpeg"
+  width="1000"
+  heigh="378"
+/>
+## Verde en **CPU (JavaScript)**, rosa en **GPU (GLSL)**
+</Center>
+
+---
+
+
+# Vértices y geometría
 
 <VertexExample  />
 
 ---
 
-# Mallado
-
-- **Rasterización**
-- Más triángulos mejor definición
+# Rasterización
 
 <MeshExample  />
 
@@ -193,33 +202,314 @@ const vertex3 = [0.0, 0.5, 1.0]
 
 ---
 
-# Mejorar la experiencia
+# Grafo de escena
+
+<Center>
+<img
+  src="/images/escena.png"
+  width="621"
+  heigh="552"
+/>
+</Center>
+
+---
+
+# Transformaciones
+
+- Posición
+- Rotación
+- Escala
+
+<Center>
+<img
+  className="rounded-md"
+  src="/images/transformations.png"
+  width="836"
+  heigh="256"
+/>
+</Center>
+
+---
+
+# Grupo
+
+<Center>
+<img
+  src="/images/group.png"
+  width="490"
+  heigh="390"
+/>
+</Center>
+
+---
+
+# Cámara
+
+<Center>
+<img
+  src="/images/camara.png"
+  width="1000"
+  heigh="482"
+/>
+</Center>
+
+---
+
+# **Three.js**
+
+### Renderer
+
+```js
+import * as THREE from 'three';
+
+const scene = new THREE.Scene();
+const aspect = window.innerWidth / window.innerHeight;
+const camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+document.body.appendChild(renderer.domElement);
+```
+
+### Escena
+
+```js
+const geometry = new THREE.SphereGeometry(1, 18, 18);
+const material = new THREE.MeshNormalMaterial();
+const sphere = new THREE.Mesh(geometry, material);
+
+scene.add(sphere);
+camera.position.z = 3;
+```
+
+### Ciclo principal
+
+```js
+const render = () => {
+  requestAnimationFrame(render);
+  sphere.rotation.y += 0.1;
+  renderer.render(scene, camera);
+};
+
+render();
+```
+
+---
+
+# Pero yo se **React**
+
+<ReactExample />
+
+---
+
+# **React Three Fiber**
+
+- Renderer de React para Three.js
+- Sin limitaciones
+- Igual de rápido
+- [@react-three/drei](https://github.com/pmndrs/drei)
+  - Controles
+  - Audio
+  - Efectos
+  - Texto
+- [react-spring](https://www.react-spring.dev/)
+  - Animaciones
+
+---
+
+# **React Three Fiber**
+
+```jsx
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useRef } from "react";
+
+const Sphere = () => {
+  const ref = useRef(null);
+
+  useFrame((_state, delta) => {
+    ref.current.rotation.y += delta;
+  });
+
+  return (
+    <mesh ref={ref} position={[0, 0, 0]}>
+      <sphereGeometry args={[1, 18, 18]} />
+      <meshStandardMaterial color="blue" />
+    </mesh>
+  );
+};
+
+export const Example = () => {
+  return (
+    <Canvas camera={{ position: [0, 0, 3] }}>
+      <ambientLight />
+      <Sphere />
+    </Canvas>
+  );
+};
+```
+---
+
+# Material
+
+- **Apariencia del objeto**
+- Diferentes tipos
+  - `MeshStandardMaterial`
+  - `MeshLambertMaterial`
+  - `MeshToonMaterial`
+- Transparencia
+- Color, aspereza y metalicidad
+- Texturas
+
+---
+
+# Material
+
+<MaterialExample />
+
+---
+
+# Material
+
+```jsx
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import { useRef } from "react";
+import { TextureLoader } from "three";
+
+const Earth = () => {
+  const ref = useRef<(null);
+  const colorMap = useLoader(TextureLoader, "/images/earth.jpeg");
+
+  useFrame((_state, delta) => {
+    ref.current.rotation.y += delta;
+  });
+
+  return (
+    <mesh ref={ref} position={[0, 0, 0]}>
+      <sphereGeometry args={[1, 18, 18]} />
+      <meshStandardMaterial map={colorMap} />
+    </mesh>
+  );
+};
+
+export const Example = () => {
+  return (
+    <Canvas>
+      <Suspense fallback={null}>
+        <ambientLight />
+        <Earth />
+      </Suspense>
+    </Canvas>
+  );
+};
+```
+
+---
+
+# Iluminación
+
+<Center>
+<img
+  src="/images/lighting.png"
+  width="758"
+  heigh="165"
+/>
+</Center>
+
+---
+
+# Iluminación
+
+<LightExample />
+
+---
+
+# Iluminación
+
+```jsx
+const Sun = () => {
+  const ref = useRef(null);
+  const position = [0, 0, 10]
+
+  useFrame((_state, delta) => {
+    ref.current.rotation.y += delta * 2;
+  });
+
+  return (
+    <group ref={ref}>
+      <pointLight position={position} />
+      <mesh position={position}>
+        <sphereGeometry args={[0.2, 18, 18]} />
+        <meshStandardMaterial color="yellow" />
+      </mesh>
+    </group>
+  );
+};
+
+export const LightExample = () => {
+  return (
+    <Canvas camera={{ position: [0, 0, 3] }}>
+      <Suspense fallback={null}>
+        <ambientLight />
+        <Sun position={[0, 0, 0]} />
+        <Earth position={[0, 0, 0]} />
+      </Suspense>
+    </Canvas>
+  );
+};
+```
+
+---
+
+<Center>
+# ¿Y si cargo un modelo de Polycam?
+</Center>
+
+---
+
+# Modelo de **piso**
 
 <FlatExample />
 
 ---
 
-# Tokyo Sights
+# Modelo
 
----
+```jsx
+import { Canvas, useLoader } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
-theme: dark
-notes: "Hey, this is a test."
+export const FlatExample = () => {
+  const gltf = useLoader(GLTFLoader, "/assets/flat.glb");
 
---
-
-# Tokyo in the Dark
-
-![Tokyo in the Dark](dark.jpg?height=60vh&borderRadius=20px&margin=0%20auto&display=block)
-
----
-
-# Code in Tokyo
-
-```javascript
-const tokyo = "Tokyo";
-
-console.log("I love " + tokyo);
+  return (
+    <Canvas resize={{ scroll: false, offsetSize: true }}>
+      <ambientLight intensity={0.5} />
+      <pointLight position={[-10, -10, -10]} />
+      <primitive object={gltf.scene} />
+      <OrbitControls />
+    </Canvas>
+  );
+};
 ```
 
-_Hint: Switch your system's dark/light mode!_
+---
+
+# Conclusiones
+
+- Modelos 3D
+- Mejorar experiencia
+  - Visita
+  - Iluminación
+  - Medidas
+  - Muebles
+- **WebGL** es complejo
+- **Three.js** y **React Three Fiber** lo hacen más facil
+
+---
+
+<Center>
+# **¿Preguntas?**
+</Center>
+
+---

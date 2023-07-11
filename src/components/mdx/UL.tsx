@@ -6,7 +6,10 @@ export type ULProps = ComponentPropsWithoutRef<"ul">;
 export const UL = ({ className, ...others }: ULProps) => {
   return (
     <ul
-      className={clsx(className, "list-disc text-display-2 font-medium ml-2xl")}
+      className={clsx(
+        className,
+        "list-disc text-display-3-expanded font-medium ml-2xl"
+      )}
       {...others}
     />
   );
