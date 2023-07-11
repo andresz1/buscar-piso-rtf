@@ -6,6 +6,10 @@
   A presentation about React Three Fiber ✨
 </p>
 
+<p align="center">
+  <a href="https://buscar-piso-rtf.vercel.app/" target="_blank">Presentation<a/>
+</p>
+
 ## Stack
 
 - [remdx](https://github.com/cpojer/remdx)
