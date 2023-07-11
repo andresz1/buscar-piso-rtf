@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://buscar-piso-rtf.vercel.app/" target="_blank">Presentation<a/>
+  <a href="https://buscar-piso-rtf.vercel.app/" target="_blank">Slides<a/>
 </p>
 
 ## Stack
