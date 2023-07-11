@@ -1,9 +1,9 @@
-<p align="center">
-  <img alt="logo" src="/public/images/cover.png" width="620">
-</p>
+<h1 align="center">
+  Buscar Piso y React Three Fiber
+</h1>
 
 <p align="center">
-  A presentation about React Three Fiber ✨
+  A presentation about [React Three Fiber](https://github.com/pmndrs/react-three-fiber) ✨
 </p>
 
 <p align="center">
