@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  A presentation about [React Three Fiber](https://github.com/pmndrs/react-three-fiber) ✨
+A presentation about <a href="https://github.com/pmndrs/react-three-fiber" target="_blank">React Three Fiber</a> ✨
 </p>
 
 <p align="center">
